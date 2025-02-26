@@ -8,7 +8,7 @@ namespace DataSource.Models
     [Table("CIDADES")]
     public class Cidade : Entity
     {
-        [Column("ID"), Key]
+        [Column("ID"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Column("NOME")]
         public string Nome { get; set; }

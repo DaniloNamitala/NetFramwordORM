@@ -25,7 +25,7 @@ namespace DataSource
         public bool Insert<T>(ref T entity)
         {
             string table = typeof(T).GetCustomAttribute<TableAttribute>().Name;
-            PropertyInfo[] properties = typeof(T).GetProperties().Where(p => p.GetCustomAttribute<KeyAttribute>() == null).ToArray();
+            PropertyInfo[] properties = typeof(T).GetProperties().Where(p => p.GetCustomAttribute<DatabaseGeneratedAttribute>() == null).ToArray();
             PropertyInfo keyProp = typeof(T).GetProperties().Where(p => p.GetCustomAttribute<KeyAttribute>() != null).FirstOrDefault();
             string output = "";
             if (keyProp != null)
