@@ -10,7 +10,8 @@ O objetivo desse repositorio era desenvolver um ORM mínimo para acesso ao banco
 2. Anotar a classe com o nome da tabela correspondente no banco usando o [TableAttribute](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.tableattribute?view=net-9.0)
 3. Anotar as propriedades com o nome das colunas correspondentes usando o [ColumnAttribute](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.ColumnAttribute?view=net-9.0)
 4. Anotar a coluna de chave com o atributo [KeyAttribute](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.keyattribute?view=net-9.0)
-5. Herdar a classe Entity (Opcional)
+5. Para chaves geradas pelo banco de dados, adicionar a propriedade [DatabaseGeneratedAttribute](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.schema.databasegeneratedattribute?view=net-9.0) vai ignorar a inserção da chave
+6. Herdar a classe Entity (Opcional)
 
 obs. A classe Entity serve apenas para prover metodos auxiliares e extensões para as models.
 
@@ -19,7 +20,9 @@ Exemplo:
 [Table("CIDADES")]
 public class Cidade : Entity
 {
-    [Column("ID"), Key]
+    [Column("ID")]
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     [Column("NOME")]
     public string Nome { get; set; }
