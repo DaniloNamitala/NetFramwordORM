@@ -94,7 +94,7 @@ city.Save()
 ```C#
 Cidade city = DatabaseConnection.Instance.Select<Cidade>().First();
 
-// DELETE FROM CIDADE WHERE ID == ID = @ID
+// DELETE FROM CIDADE WHERE ID = @ID
 DatabaseConnection.Instance.Delete(city);
 ```
 
