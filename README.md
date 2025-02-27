@@ -1,6 +1,6 @@
 ## Objetivo
 
-O objetivo desse repositorio era desenvolver um ORM mínimo para acesso ao banco de dados em .Net Framework.
+O objetivo desse repositorio é oferecer um ORM mínimo para acesso ao banco de dados em .Net Framework.
 
 ## Uso
 
